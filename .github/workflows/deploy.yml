@@ -24,7 +24,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build & Export Next.js
-        run: pnpm build && pnpm export
+        run: pnpm build
 
       - name: Fix GitHub Pages Issues
         run: touch ./out/.nojekyll
