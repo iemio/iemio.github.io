@@ -5,7 +5,7 @@ import "@/styles/projects.css";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 import { ImGithub, ImInfo } from "react-icons/im";
-import Image from "next/image";
+// import Image from "next/image";
 export default function Projects() {
     return (
         <section className="projects section" id="projects">

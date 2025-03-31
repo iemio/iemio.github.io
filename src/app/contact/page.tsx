@@ -1,6 +1,5 @@
 import React from "react";
 import "@/styles/contact.css";
-import Image from "next/image";
 import { FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
 
