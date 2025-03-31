@@ -14,12 +14,12 @@ export default function Projects() {
 
                     <p className="contact__description-1">
                         I will read all emails. Send me any message you want and
-                        I'll get back to you.
+                        I&apos;ll get back to you.
                     </p>
 
                     <p className="contact__description-2">
                         I need your <b>Name</b> and <b>Email Address</b>, but
-                        you won't receive anything other than your reply.
+                        you won&apos;t receive anything other than your reply.
                     </p>
 
                     <div className="geometric-box"></div>
