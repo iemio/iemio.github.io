@@ -5,7 +5,7 @@ import "@/styles/projects.css";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 import { ImGithub, ImInfo } from "react-icons/im";
-
+import Image from "next/image";
 export default function Projects() {
     return (
         <section className="projects section" id="projects">
@@ -17,7 +17,7 @@ export default function Projects() {
                 <article className="projects__card">
                     <div className="projects__image">
                         <img
-                            src="https://images.unsplash.com/photo-1672257493461-704902362c1d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI3NjY0OTV8&ixlib=rb-4.0.3&q=85"
+                            src="./pjt.jpeg"
                             alt="image"
                             className="projects__img"
                         />
@@ -35,7 +35,7 @@ export default function Projects() {
                         <p className="projects__description">
                             Project that you carry out in the design and
                             structure of the layout, showing the design at the
-                            client's request.
+                            client&apos;s request.
                         </p>
                     </div>
 

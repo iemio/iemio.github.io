@@ -2,6 +2,7 @@
 
 import { FaLinkedinIn, FaGithub, FaCodepen } from "react-icons/fa";
 import { HiOutlineChevronDown } from "react-icons/hi";
+import Image from "next/image";
 import "@/styles/home.css";
 
 export default function Home() {

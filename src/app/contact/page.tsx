@@ -1,7 +1,8 @@
 import React from "react";
 import "@/styles/contact.css";
-
+import Image from "next/image";
 import { FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
+import { RiSendPlaneLine } from "react-icons/ri";
 
 export default function Projects() {
     return (
@@ -101,7 +102,8 @@ export default function Projects() {
                             type="submit"
                             className="contact__button button"
                         >
-                            <i className="ri-send-plane-line"></i> Send Message
+                            {/* <i className="ri-send-plane-line"></i> Send Message */}
+                            <RiSendPlaneLine /> Send Message
                         </button>
                     </form>
                 </div>
