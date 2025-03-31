@@ -1,7 +1,7 @@
 import React from "react";
 import "@/styles/projects.css";
 
-import { PiGithubLogoBold, PiInfoBold } from "react-icons/pi";
+// import { PiGithubLogoBold, PiInfoBold } from "react-icons/pi";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 import { ImGithub, ImInfo } from "react-icons/im";

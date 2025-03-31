@@ -1,7 +1,6 @@
 "use client"; // Required for App Router
 
 import { FaLinkedinIn, FaGithub, FaCodepen } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import "@/styles/home.css";
 
