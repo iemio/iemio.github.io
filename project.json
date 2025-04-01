@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "title": "Portfolio Website",
+        "type": "Website",
+        "description": "A personal portfolio website showcasing my projects and skills.",
+        "technologies": ["Next.js", "Tailwind CSS", "TypeScript"],
+        "source_code_link": "https://github.com/iemio/portfolio",
+        "demo_link": "https://iemio.dev",
+        "image": "/pjt.jpeg"
+    },
+    {
+        "id": "2",
+        "title": "Task Manager App",
+        "type": "App",
+        "description": "A task management application with real-time collaboration features.",
+        "technologies": ["React", "Node.js", "MongoDB", "WebSockets"],
+        "source_code_link": "https://github.com/iemio/task-manager",
+        "demo_link": "https://tasks.iemio.dev",
+        "image": "/pjt.jpeg"
+    },
+    {
+        "id": "3",
+        "title": "E-commerce Platform",
+        "type": "Full-Stack E-commerce",
+        "description": "An e-commerce platform with product listings, cart, and checkout functionality.",
+        "technologies": ["Next.js", "PostgreSQL", "Stripe API"],
+        "source_code_link": "https://github.com/iemio/ecommerce",
+        "demo_link": "https://shop.iemio.dev",
+        "image": "/pjt.jpeg"
+    }
+]
