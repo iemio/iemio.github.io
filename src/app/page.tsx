@@ -94,7 +94,7 @@ export default function Personal() {
                 <h3 className="mb-5 text-lg font-medium">Some Projects</h3>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     {PROJECTS.map((project) => (
-                        <ProjectCard project={project} />
+                        <ProjectCard project={project} key={project.id} />
                     ))}
                 </div>
             </motion.section>
