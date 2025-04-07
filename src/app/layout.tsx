@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import "@/styles/globals.css";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "next-themes";
+import { ViewTransitions } from "next-view-transitions";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -42,13 +43,15 @@ export default function RootLayout({
                     storageKey="theme"
                     defaultTheme="system"
                 >
-                    <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-                        <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-                            <Header />
-                            {children}
-                            <Footer />
+                    <ViewTransitions>
+                        <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
+                            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
+                                <Header />
+                                {children}
+                                <Footer />
+                            </div>
                         </div>
-                    </div>
+                    </ViewTransitions>
                 </ThemeProvider>
             </body>
         </html>
