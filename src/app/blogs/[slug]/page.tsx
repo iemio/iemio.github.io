@@ -20,7 +20,13 @@ export async function generateStaticParams() {
 //     );
 // }
 
-export default async function BlogPage() {
+export default async function BlogPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { slug } = await params;
     const blog = await getBlogBySlug("blog1");
     return (
         <main className="prose">
