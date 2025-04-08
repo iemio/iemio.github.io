@@ -3,18 +3,17 @@
 import { notFound } from "next/navigation";
 import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
 
-type BlogPageProps = {
-    params: {
-        slug: string;
-    };
-};
-
-// ✅ Correct usage — mark async and return the correct type
+// We'll inline the type for clarity, ensuring it matches Next.js expectations.
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    return await getAllBlogSlug(); // assuming this returns Promise<{ slug: string }[]>
+    return await getAllBlogSlug();
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
+export default async function BlogPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    // Remove the await on params; it's a plain object.
     const { slug } = params;
 
     try {
