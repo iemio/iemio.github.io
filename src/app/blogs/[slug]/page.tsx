@@ -5,12 +5,6 @@ export async function generateStaticParams() {
     return getAllBlogSlug(); // should return [{ slug: 'example' }, ...]
 }
 
-type BlogPageProps = {
-    params: {
-        slug: string;
-    };
-};
-
 export default async function BlogPage({
     params,
 }: {
