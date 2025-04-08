@@ -5,11 +5,7 @@ import { getMDXComponents } from "../../../mdx-components";
 
 const contentDir = path.join(process.cwd(), "src/app/blogs/_mdx-content");
 
-export async function getBlogBySlug(slug: string): Promise<{
-    frontmatter: { title: string; author: string; publishDate: string };
-    content: string;
-    slug: string;
-}> {
+export async function getBlogBySlug(slug: string) {
     const fileName = slug + ".mdx";
     const filePath = path.join(contentDir, fileName);
     const fileContent = fs.readFileSync(filePath, "utf8");
@@ -22,11 +18,11 @@ export async function getBlogBySlug(slug: string): Promise<{
         options: { parseFrontmatter: true },
         components: getMDXComponents({}),
     });
-    return Promise.resolve({
+    return {
         frontmatter,
         content,
         slug: path.parse(fileName).name,
-    });
+    };
 }
 
 export async function getBlogs() {
