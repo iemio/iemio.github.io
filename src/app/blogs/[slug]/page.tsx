@@ -7,15 +7,24 @@ export async function generateStaticParams() {
     return slugs;
 }
 
-export default async function BlogPage({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    const blog = await getBlogBySlug(params.slug);
+// export default async function BlogPage({
+//     params,
+// }: {
+//     params: { slug: string };
+// }) {
+//     // const blog = await getBlogBySlug(params.slug);
+//     return (
+//         <main className="prose">
+//             <article>{"blog.content"}</article>
+//         </main>
+//     );
+// }
+
+export default async function BlogPage() {
+    // const blog = await getBlogBySlug(params.slug);
     return (
         <main className="prose">
-            <article>{blog.content}</article>
+            <article>{"blog.content"}</article>
         </main>
     );
 }

@@ -22,11 +22,11 @@ export async function getBlogBySlug(slug: string): Promise<{
         options: { parseFrontmatter: true },
         components: getMDXComponents({}),
     });
-    return {
+    return Promise.resolve({
         frontmatter,
         content,
         slug: path.parse(fileName).name,
-    };
+    });
 }
 
 export async function getBlogs() {
