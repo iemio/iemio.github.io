@@ -1,5 +1,5 @@
 // app/blog/[slug]/page.tsx
-import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
+import { getAllBlogSlug } from "../fetchers";
 
 export async function generateStaticParams() {
     const slugs = await getAllBlogSlug();
