@@ -1,15 +1,21 @@
+// app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
 
+// Use generateStaticParams to provide the route parameters
 export async function generateStaticParams() {
-    return getAllBlogSlug(); // should return [{ slug: 'example' }, ...]
+    return getAllBlogSlug(); // ensure this returns string[] or similar
 }
 
-export default async function BlogPage({
-    params,
-}: {
-    params: { slug: string };
-}) {
+// Define your own props type inline (no promise here)
+type BlogPageProps = {
+    params: {
+        slug: string;
+    };
+};
+
+// Using an async Server Component is allowed in the App Router:
+export default async function BlogPage({ params }: BlogPageProps) {
     const { slug } = params;
 
     try {
