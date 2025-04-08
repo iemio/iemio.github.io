@@ -1,5 +1,5 @@
 // app/blog/[slug]/page.tsx
-import { getAllBlogSlug } from "../fetchers";
+import { getAllBlogSlug, getBlogBySlug } from "../fetchers";
 
 export async function generateStaticParams() {
     const slugs = await getAllBlogSlug();
@@ -21,10 +21,10 @@ export async function generateStaticParams() {
 // }
 
 export default async function BlogPage() {
-    // const blog = await getBlogBySlug(params.slug);
+    const blog = await getBlogBySlug("blog1");
     return (
         <main className="prose">
-            <article>{"blog.content"}</article>
+            <article>{blog.content}</article>
         </main>
     );
 }
