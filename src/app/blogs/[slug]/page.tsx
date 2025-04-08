@@ -9,14 +9,13 @@ type BlogPageProps = {
     };
 };
 
-// ✅ This enables static generation of all slugs at build time
-export function generateStaticParams(): BlogPageProps["params"][] {
-    return getAllBlogSlug(); // returns [{ slug: string }, ...]
+// ✅ Correct usage — mark async and return the correct type
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+    return await getAllBlogSlug(); // assuming this returns Promise<{ slug: string }[]>
 }
 
-// ✅ This is the statically generated page
 export default async function BlogPage({ params }: BlogPageProps) {
-    const { slug } = await params;
+    const { slug } = params;
 
     try {
         const blog = await getBlogBySlug(slug);
