@@ -1,11 +1,10 @@
 // app/blog/[slug]/page.tsx
 import { getAllBlogSlug, getBlogBySlug } from "../fetchers";
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
     const slugs = await getAllBlogSlug();
     console.log("slugs", slugs);
-    // return slugs;
-    return [{ slug: "blog1" }, { slug: "blog2" }];
+    return slugs;
 }
 
 export default async function BlogPage({
