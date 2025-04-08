@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = () => {
-    return <div>hello blog</div>;
+    return <div>here comes all projects.</div>;
 };
 
 export default page;

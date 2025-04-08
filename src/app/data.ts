@@ -59,14 +59,14 @@ export const BLOG_POSTS: BlogPost[] = [
     {
         title: "first_blog_title",
         description: "How AI is changing the way we design",
-        link: "/blog/first_blog",
+        link: "/blogs/blog1",
         uid: "blog-1",
     },
     {
         title: "Why I left my job to start my own company",
         description:
             "A deep dive into my decision to leave my job and start my own company",
-        link: "/blog/exploring-the-intersection-of-design-ai-and-design-engineering",
+        link: "/blogs/blog2",
         uid: "blog-2",
     },
     {

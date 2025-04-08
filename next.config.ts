@@ -10,12 +10,21 @@ const nextConfig: NextConfig = {
         unoptimized: true, // Required for GitHub Pages (no Next.js Image Optimization)
     },
     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+    transpilePackages: ["next-mdx-remote"],
 };
 
 // export default nextConfig;
 
+// const withMDX = createMDX({
+//     extension: /\.mdx?$/,
+// });
+
 const withMDX = createMDX({
-    extension: /\.mdx?$/,
+    // Add markdown plugins here, as desired
+    options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
 });
 
 export default withMDX(nextConfig);
