@@ -2,14 +2,16 @@ import { notFound } from "next/navigation";
 import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
 
 export async function generateStaticParams() {
-    return getAllBlogSlug();
+    return getAllBlogSlug(); // should return [{ slug: 'example' }, ...]
 }
 
-export default async function BlogPage({
-    params,
-}: {
-    params: { slug: string };
-}) {
+type BlogPageProps = {
+    params: {
+        slug: string;
+    };
+};
+
+export default async function BlogPage({ params }: BlogPageProps) {
     const { slug } = params;
 
     try {
@@ -21,6 +23,6 @@ export default async function BlogPage({
         );
     } catch (err) {
         console.error("Error fetching blog:", err);
-        notFound(); // fallback for invalid slugs
+        notFound();
     }
 }
