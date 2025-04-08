@@ -33,7 +33,7 @@ export async function getBlogs() {
     return blogs;
 }
 
-export function getAllBlogSlug() {
+export async function getAllBlogSlug() {
     const files = fs.readdirSync(contentDir);
     const slugs = files.map((file) => ({ slug: path.parse(file).name }));
     return slugs;
