@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
 
 // We'll inline the type for clarity, ensuring it matches Next.js expectations.
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    return await getAllBlogSlug();
+export async function generateStaticParams() {
+    return getAllBlogSlug();
 }
 
 export default async function BlogPage({
@@ -13,19 +13,10 @@ export default async function BlogPage({
 }: {
     params: { slug: string };
 }) {
-    // Remove the await on params; it's a plain object.
-    const { slug } = params;
-
-    try {
-        const blog = await getBlogBySlug(slug);
-
-        return (
-            <main className="prose dark:prose-invert mt-24 pb-20">
-                <article>{blog.content}</article>
-            </main>
-        );
-    } catch (err) {
-        console.error("Error fetching blog:", err);
-        notFound();
-    }
+    const blog = await getBlogBySlug(params.slug);
+    return (
+        <main className="prose">
+            <article>{blog.content}</article>
+        </main>
+    );
 }
