@@ -9,8 +9,10 @@ export async function generateStaticParams() {
 
 export default async function BlogPage({
     params,
+    searchParams,
 }: {
     params: { slug: string };
+    searchParams: { [key: string]: string | string[] | undefined };
 }) {
     const blog = await getBlogBySlug(params.slug);
     return (
