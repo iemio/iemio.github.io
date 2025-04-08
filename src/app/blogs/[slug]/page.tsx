@@ -1,7 +1,5 @@
-"use server";
 import { notFound } from "next/navigation";
 import { getBlogBySlug, getAllBlogSlug } from "../fetchers";
-import { useMDXComponents } from "../../../../mdx-components";
 
 export async function generateStaticParams() {
     return getAllBlogSlug();

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { useMDXComponents } from "../../../mdx-components";
+import { getMDXComponents } from "../../../mdx-components";
 
 const contentDir = path.join(process.cwd(), "src/app/blogs/_mdx-content");
 
@@ -16,7 +16,7 @@ export async function getBlogBySlug(slug: string) {
     }>({
         source: fileContent,
         options: { parseFrontmatter: true },
-        components: useMDXComponents({}),
+        components: getMDXComponents({}),
     });
     return {
         frontmatter,
