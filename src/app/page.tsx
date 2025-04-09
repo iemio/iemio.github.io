@@ -16,8 +16,10 @@ import { useTransitionRouter } from "next-view-transitions";
 import LenisWrapper from "@/components/lenisWrapper";
 import ResumeButton from "@/components/ui/resumeButton";
 import { FloatingDock } from "@/components/ui/dock";
-import { FaGithub, FaHome } from "react-icons/fa";
 
+import { FaGithub, FaHome } from "react-icons/fa";
+import { RiQuillPenFill } from "react-icons/ri";
+import { LuNotebook } from "react-icons/lu";
 const links = [
     {
         title: "Home",
@@ -26,7 +28,20 @@ const links = [
         ),
         href: "#",
     },
-
+    {
+        title: "Blogs",
+        icon: (
+            <RiQuillPenFill className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "/blogs",
+    },
+    {
+        title: "Diary",
+        icon: (
+            <LuNotebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "/diaries",
+    },
     {
         title: "GitHub",
         icon: (
@@ -35,7 +50,6 @@ const links = [
         href: "#",
     },
 ];
-
 const VARIANTS_CONTAINER = {
     hidden: { opacity: 0 },
     visible: {
