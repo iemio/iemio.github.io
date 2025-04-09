@@ -14,6 +14,27 @@ import {
 import ProjectCard from "@/components/ui/project-card";
 import { useTransitionRouter } from "next-view-transitions";
 import LenisWrapper from "@/components/lenisWrapper";
+import ResumeButton from "@/components/ui/resumeButton";
+import { FloatingDock } from "@/components/ui/dock";
+import { FaGithub, FaHome } from "react-icons/fa";
+
+const links = [
+    {
+        title: "Home",
+        icon: (
+            <FaHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "#",
+    },
+
+    {
+        title: "GitHub",
+        icon: (
+            <FaGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "#",
+    },
+];
 
 const VARIANTS_CONTAINER = {
     hidden: { opacity: 0 },
@@ -100,6 +121,7 @@ export default function Personal() {
 
     return (
         <LenisWrapper>
+            <FloatingDock items={links} />
             <motion.main
                 className="space-y-24"
                 variants={VARIANTS_CONTAINER}
@@ -111,14 +133,14 @@ export default function Personal() {
                     transition={TRANSITION_SECTION}
                 >
                     <div className="flex-1">
-                        <p className="text-zinc-600 dark:text-zinc-400">
+                        <p className="text-zinc-600 dark:text-zinc-400 mb-7">
                             Passionate about solving real world problems.
                             <br /> Interested in artificial intelligence and
                             machine learning.
                         </p>
+                        <ResumeButton />
                     </div>
                 </motion.section>
-
                 <motion.section
                     variants={VARIANTS_SECTION}
                     transition={TRANSITION_SECTION}
