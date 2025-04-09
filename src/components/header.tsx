@@ -46,7 +46,7 @@ export function Header() {
                         });
                     }}
                 >
-                    Hi! I'm Keshav.
+                    Hi! I&apos;m Keshav.
                 </Link>
                 <TextEffect
                     as="p"

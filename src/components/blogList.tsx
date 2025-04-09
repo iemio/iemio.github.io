@@ -1,6 +1,5 @@
 // app/blogs/BlogsList.tsx
 "use client";
-import { BLOG_POSTS } from "@/app/data";
 import { useTransitionRouter } from "next-view-transitions";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -32,7 +31,7 @@ export type BlogPost = {
         author: string;
         publishDate: string;
     };
-    content: ReactElement<unknown, string | JSXElementConstructor<any>>;
+    content: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
     slug: string;
 };
 
