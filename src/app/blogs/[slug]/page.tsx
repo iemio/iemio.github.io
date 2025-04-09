@@ -13,9 +13,5 @@ type Params = Promise<{ slug: string }>;
 export default async function BlogPage({ params }: { params: Params }) {
     const { slug } = await params;
     const blog = await getBlogBySlug(slug);
-    return (
-        <main className="prose">
-            <article>{blog.content}</article>
-        </main>
-    );
+    return <article>{blog.content}</article>;
 }
