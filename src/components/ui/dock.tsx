@@ -5,7 +5,10 @@
  **/
 
 import { cn } from "@/lib/utils";
-import { TbLayoutNavbarCollapse } from "react-icons/tb";
+import {
+    TbLayoutNavbarCollapseFilled,
+    TbLayoutNavbarExpandFilled,
+} from "react-icons/tb";
 import {
     AnimatePresence,
     MotionValue,
@@ -16,20 +19,35 @@ import {
 } from "motion/react";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export const FloatingDock = ({
     items,
     desktopClassName,
     mobileClassName,
 }: {
-    items: { title: string; icon: React.ReactNode; href: string }[];
+    items: {
+        title: string;
+        icon: React.ReactNode;
+        activeIcon: React.ReactNode;
+        href: string;
+    }[];
     desktopClassName?: string;
     mobileClassName?: string;
 }) => {
+    const pathname = usePathname();
     return (
         <>
-            <FloatingDockDesktop items={items} className={desktopClassName} />
-            <FloatingDockMobile items={items} className={mobileClassName} />
+            <FloatingDockDesktop
+                items={items}
+                className={desktopClassName}
+                pathname={pathname}
+            />
+            <FloatingDockMobile
+                items={items}
+                className={mobileClassName}
+                pathname={pathname}
+            />
         </>
     );
 };
@@ -37,9 +55,16 @@ export const FloatingDock = ({
 const FloatingDockMobile = ({
     items,
     className,
+    pathname,
 }: {
-    items: { title: string; icon: React.ReactNode; href: string }[];
+    items: {
+        title: string;
+        icon: React.ReactNode;
+        activeIcon: React.ReactNode;
+        href: string;
+    }[];
     className?: string;
+    pathname: string;
 }) => {
     const [open, setOpen] = useState(false);
     return (
@@ -55,34 +80,41 @@ const FloatingDockMobile = ({
                         layoutId="nav"
                         className="absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2"
                     >
-                        {items.map((item, idx) => (
-                            <motion.div
-                                key={item.title}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                exit={{
-                                    opacity: 0,
-                                    y: 10,
-                                    transition: {
-                                        delay: idx * 0.05,
-                                    },
-                                }}
-                                transition={{
-                                    delay: (items.length - 1 - idx) * 0.05,
-                                }}
-                            >
-                                <Link
-                                    href={item.href}
+                        {items.map((item, idx) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <motion.div
                                     key={item.title}
-                                    className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    exit={{
+                                        opacity: 0,
+                                        y: 10,
+                                        transition: {
+                                            delay: idx * 0.05,
+                                        },
+                                    }}
+                                    transition={{
+                                        delay: (items.length - 1 - idx) * 0.05,
+                                    }}
                                 >
-                                    <div className="h-4 w-4">{item.icon}</div>
-                                </Link>
-                            </motion.div>
-                        ))}
+                                    <Link
+                                        href={item.href}
+                                        key={item.title}
+                                        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
+                                    >
+                                        <div className="h-4 w-4">
+                                            {isActive
+                                                ? item.activeIcon
+                                                : item.icon}
+                                        </div>
+                                    </Link>
+                                </motion.div>
+                            );
+                        })}
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -90,7 +122,11 @@ const FloatingDockMobile = ({
                 onClick={() => setOpen(!open)}
                 className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
             >
-                <TbLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+                {open ? (
+                    <TbLayoutNavbarExpandFilled className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+                ) : (
+                    <TbLayoutNavbarCollapseFilled className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+                )}
             </button>
         </div>
     );
@@ -99,9 +135,16 @@ const FloatingDockMobile = ({
 const FloatingDockDesktop = ({
     items,
     className,
+    pathname,
 }: {
-    items: { title: string; icon: React.ReactNode; href: string }[];
+    items: {
+        title: string;
+        icon: React.ReactNode;
+        activeIcon: React.ReactNode;
+        href: string;
+    }[];
     className?: string;
+    pathname: string;
 }) => {
     const mouseX = useMotionValue(Infinity);
     return (
@@ -113,9 +156,17 @@ const FloatingDockDesktop = ({
                 className
             )}
         >
-            {items.map((item) => (
-                <IconContainer mouseX={mouseX} key={item.title} {...item} />
-            ))}
+            {items.map((item) => {
+                console.log(item.href, pathname);
+                return (
+                    <IconContainer
+                        mouseX={mouseX}
+                        key={item.title}
+                        {...item}
+                        isActive={pathname === item.href}
+                    />
+                );
+            })}
         </motion.div>
     );
 };
@@ -124,12 +175,16 @@ function IconContainer({
     mouseX,
     title,
     icon,
+    activeIcon,
     href,
+    isActive,
 }: {
     mouseX: MotionValue;
     title: string;
     icon: React.ReactNode;
+    activeIcon: React.ReactNode;
     href: string;
+    isActive: boolean;
 }) {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -209,7 +264,7 @@ function IconContainer({
                     style={{ width: widthIcon, height: heightIcon }}
                     className="flex items-center justify-center"
                 >
-                    {icon}
+                    {isActive ? activeIcon : icon}
                 </motion.div>
             </motion.div>
         </Link>
