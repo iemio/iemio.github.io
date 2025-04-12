@@ -66,8 +66,10 @@ const Skeleton = ({ logos }: SkeletonProps) => {
 
     useEffect(() => {
         animate(sequence, {
-            // @ts-expect-error
+            /* eslint-disable @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
             repeat: Infinity,
+            /* eslint-enable @typescript-eslint/ban-ts-comment */
             repeatDelay: 1,
         });
     }, [sequence]);
