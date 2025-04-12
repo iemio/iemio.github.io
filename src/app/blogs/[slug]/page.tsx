@@ -1,4 +1,5 @@
 // app/blog/[slug]/page.tsx
+import { notFound } from "next/navigation";
 import { getAllBlogSlug, getBlogBySlug } from "../fetchers";
 
 export async function generateStaticParams() {
@@ -13,5 +14,9 @@ type Params = Promise<{ slug: string }>;
 export default async function BlogPage({ params }: { params: Params }) {
     const { slug } = await params;
     const blog = await getBlogBySlug(slug);
+
+    if (!blog) {
+        notFound();
+    }
     return <article>{blog.content}</article>;
 }
