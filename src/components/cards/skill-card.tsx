@@ -66,7 +66,7 @@ const Skeleton = ({ logos }: SkeletonProps) => {
 
     useEffect(() => {
         animate(sequence, {
-            // @ts-ignore
+            // @ts-expect-error
             repeat: Infinity,
             repeatDelay: 1,
         });
