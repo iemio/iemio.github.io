@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 import { SiGithub, SiInstagram, SiX, SiYoutube } from "react-icons/si";
-
+import Image from "next/image";
 interface BlockProps {
     className?: string;
     children?: React.ReactNode;
-    [key: string]: any; // For rest props
+    [key: string]: unknown; // For rest props
 }
 
 const Block = ({ className, ...rest }: BlockProps) => {
@@ -43,13 +43,15 @@ const Block = ({ className, ...rest }: BlockProps) => {
 
 const HeaderBlock = () => (
     <Block className="col-span-12 row-span-2 md:col-span-6">
-        <img
+        <Image
             src="https://api.dicebear.com/8.x/lorelei-neutral/svg?seed=John"
             alt="avatar"
             className="mb-4 size-14 rounded-full"
+            width={14}
+            height={14}
         />
         <h1 className="mb-12 text-4xl font-medium leading-tight">
-            Hi, I'm Keshav.{" "}
+            Hi, I&apos;m Keshav.{" "}
             <span className="text-zinc-400">I build cool stuffs.</span>
         </h1>
         <a
