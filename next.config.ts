@@ -16,10 +16,11 @@ const nextConfig: NextConfig = {
 // export default nextConfig;
 
 // const withMDX = createMDX({
-//     extension: /\.mdx?$/,
+//
 // });
 
 const withMDX = createMDX({
+    extension: /\.mdx?$/,
     // Add markdown plugins here, as desired
     options: {
         remarkPlugins: [],
