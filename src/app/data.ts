@@ -15,16 +15,14 @@ export type WorkExperience = {
     id: string;
 };
 
-export type BlogPost = {
-    title: string;
-    description: string;
-    link: string;
-    uid: string;
-};
-
 export type SocialLink = {
     label: string;
     link: string;
+};
+
+export type Skills = {
+    type: string;
+    contents: string[];
 };
 
 export const PROJECTS: Project[] = [
@@ -42,6 +40,13 @@ export const PROJECTS: Project[] = [
         video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0",
         id: "project2",
     },
+    {
+        name: "Project3",
+        description: "Description bout project 2.",
+        link: "https://project2.com",
+        video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0",
+        id: "project2",
+    },
 ];
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -52,29 +57,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         end: "Present",
         link: "https://www.iitism.ac.in/",
         id: "work1",
-    },
-];
-
-export const BLOG_POSTS: BlogPost[] = [
-    {
-        title: "first_blog_title",
-        description: "How AI is changing the way we design",
-        link: "/blogs/blog1",
-        uid: "blog-1",
-    },
-    {
-        title: "Why I left my job to start my own company",
-        description:
-            "A deep dive into my decision to leave my job and start my own company",
-        link: "/blogs/blog2",
-        uid: "blog-2",
-    },
-    {
-        title: "What I learned from my first year of freelancing",
-        description:
-            "A look back at my first year of freelancing and what I learned",
-        link: "/blog/exploring-the-intersection-of-design-ai-and-design-engineering",
-        uid: "blog-3",
     },
 ];
 
@@ -98,3 +80,76 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const EMAIL = "your@email.com";
+
+export const SKILLS: Skills[] = [
+    {
+        type: "Languages",
+        contents: [
+            "C",
+            "C++",
+            "Python",
+            "Kotlin",
+            "JavaScript",
+            "TypeScript",
+            "Go",
+        ],
+    },
+    {
+        type: "Tools",
+        contents: [
+            "Android Studio",
+            "VS Code",
+            "Git/Github",
+            "Linux",
+            "Kaggle/Colab/Jupyter",
+        ],
+    },
+    {
+        type: "Databases",
+        contents: [
+            "SQLite",
+            "Firebase Realtime Database",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "Neo4j (Cypher)",
+            "Vector databases(Pinecone,FAISS, Weaviate)",
+        ],
+    },
+    {
+        type: "Frontend Frameworks",
+        contents: ["React.js", "Next.js", "Django"],
+    },
+    {
+        type: "Backend Frameworks",
+        contents: [
+            "Flask",
+            "Nodejs",
+            "FastAPI",
+            "Honojs",
+            "Fastify",
+            "Expressjs",
+            "Bun",
+        ],
+    },
+    {
+        type: "DL Frameworks",
+        contents: ["Tensorflow", "Keras", "Pytorch"],
+    },
+    {
+        type: "Agentic AI Frameworks",
+        contents: ["Crew AI", "Langchain", "Langgraph", "LlamaIndex"],
+    },
+    {
+        type: "Cloud services",
+        contents: ["AWS", "GCP", "Cloudfare"],
+    },
+    {
+        type: "Technologies",
+        contents: ["Docker", "Kubernetes"],
+    },
+    {
+        type: "Concepts",
+        contents: ["Microservices architecture", "DevOPs"],
+    },
+];

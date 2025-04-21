@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Mono, VT323 } from "next/font/google";
 import "@/styles/globals.css";
-
+import { ThemeProvider } from "next-themes";
+// import Footer from "@/components/footer";
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
@@ -13,14 +14,15 @@ export const metadata: Metadata = {
     description: "",
 };
 
-const geist = Geist({
-    variable: "--font-geist",
+const vt323 = VT323({
     subsets: ["latin"],
+    weight: "400", // only one weight available
+    variable: "--font-vt323", // optional: for CSS variables
 });
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
     subsets: ["latin"],
+    weight: ["400", "700"],
+    variable: "--font-space-mono",
 });
 
 export default function RootLayout({
@@ -31,9 +33,21 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+                className={`${vt323.variable} ${spaceMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
             >
-                <div>{children}</div>
+                <ThemeProvider
+                    enableSystem={true}
+                    attribute="class"
+                    storageKey="theme"
+                    defaultTheme="system"
+                >
+                    <div className="flex w-full min-h-screen flex-col font-space-mono">
+                        <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
+                            {children}
+                            {/* <Footer /> */}
+                        </div>
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     );
