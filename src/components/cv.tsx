@@ -39,14 +39,16 @@ const CV = () => {
             </div>
             <div className="mb-7">
                 {SKILLS.map((skill) => (
-                    <div className="flex flex-row gap-1 mb-2">
+                    <div className="flex flex-row gap-1 mb-2" key={skill.type}>
                         {" "}
                         <div>
                             <Badge>{skill.type}</Badge>
                         </div>
                         <div className="flex flex-wrap gap-0.5">
                             {skill.contents.map((content) => (
-                                <Badge variant="secondary">{content}</Badge>
+                                <Badge variant="secondary" key={content}>
+                                    {content}
+                                </Badge>
                             ))}
                         </div>
                     </div>
