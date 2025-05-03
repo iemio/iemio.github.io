@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PROJECTS, SKILLS } from "@/app/data";
 import ProjectCard from "./ui/project-card";
 import { Badge } from "./ui/badge";
+import SocialIcons from "./social-icons";
 
 const CV = () => {
     return (
@@ -11,16 +12,21 @@ const CV = () => {
             <div className="text-3xl text-black dark:text-white mb-4 font-bold">
                 Keshav
             </div>
-            <div className="flex-1">
-                <p className="text-zinc-600 dark:text-zinc-400 mb-7">
-                    Passionate about solving real world problems.
-                    <br /> Interested in artificial intelligence and machine
-                    learning.
-                    <Link href="/" className="text-sm">
+            <div className="flex-1 mb-4">
+                <div className="text-zinc-600 dark:text-zinc-400 mb-7">
+                    Full Stack web developer
+                    <br />
+                    Interested in artificial intelligence and machine learning.
+                    <div className="flex flex-row gap-2 mt-2 items-center">
                         <CiGlobe />
-                        Jharkhand, India
-                    </Link>
-                </p>
+                        <Link href="/" className="text-sm hover:underline">
+                            Jharkhand, India
+                        </Link>
+                    </div>
+                    <div className="mt-4">
+                        <SocialIcons />
+                    </div>
+                </div>
             </div>
             <div className="text-xl text-black dark:text-white mb-4">About</div>
             <p className="text-zinc-600 dark:text-zinc-400 mb-7">

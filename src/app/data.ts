@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
         description: "Description bout project 2.",
         link: "https://project2.com",
         video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0",
-        id: "project2",
+        id: "project3",
     },
 ];
 
@@ -94,15 +94,37 @@ export const SKILLS: Skills[] = [
             "Go",
         ],
     },
+
     {
-        type: "Tools",
+        type: "Frontend Frameworks",
+        contents: ["React.js", "Next.js", "Django"],
+    },
+    {
+        type: "Backend Frameworks",
         contents: [
-            "Android Studio",
-            "VS Code",
-            "Git/Github",
-            "Linux",
-            "Kaggle/Colab/Jupyter",
+            "Flask",
+            "Nodejs",
+            "FastAPI",
+            "Honojs",
+            "Fastify",
+            "Expressjs",
         ],
+    },
+    {
+        type: "DL Frameworks",
+        contents: ["Tensorflow", "Keras", "Pytorch"],
+    },
+    {
+        type: "Cloud services",
+        contents: ["AWS", "GCP", "Cloudfare"],
+    },
+    {
+        type: "Technologies",
+        contents: ["Docker", "Kubernetes"],
+    },
+    {
+        type: "Agentic AI Frameworks",
+        contents: ["Crew AI", "Langchain", "Langgraph", "LlamaIndex"],
     },
     {
         type: "Databases",
@@ -117,36 +139,14 @@ export const SKILLS: Skills[] = [
         ],
     },
     {
-        type: "Frontend Frameworks",
-        contents: ["React.js", "Next.js", "Django"],
-    },
-    {
-        type: "Backend Frameworks",
+        type: "Tools",
         contents: [
-            "Flask",
-            "Nodejs",
-            "FastAPI",
-            "Honojs",
-            "Fastify",
-            "Expressjs",
-            "Bun",
+            "Android Studio",
+            "VS Code",
+            "Git/Github",
+            "Linux",
+            "Kaggle/Colab/Jupyter",
         ],
-    },
-    {
-        type: "DL Frameworks",
-        contents: ["Tensorflow", "Keras", "Pytorch"],
-    },
-    {
-        type: "Agentic AI Frameworks",
-        contents: ["Crew AI", "Langchain", "Langgraph", "LlamaIndex"],
-    },
-    {
-        type: "Cloud services",
-        contents: ["AWS", "GCP", "Cloudfare"],
-    },
-    {
-        type: "Technologies",
-        contents: ["Docker", "Kubernetes"],
     },
     {
         type: "Concepts",
