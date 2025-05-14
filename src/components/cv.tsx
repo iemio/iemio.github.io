@@ -1,12 +1,13 @@
 import { CiGlobe } from "react-icons/ci";
 import React from "react";
 import Link from "next/link";
-import { EDUCATION, PROJECTS } from "@/app/data";
+import { EDUCATION, PROJECTS, SKILLS } from "@/app/data";
 // import ProjectCard from "./ui/project-card";
 // import { Badge } from "./ui/badge";
 import SocialIcons from "./social-icons";
 import { motion } from "motion/react";
 import { HoverEffect } from "./ui/card-hover-effect";
+import { Badge } from "./ui/badge";
 
 const VARIANTS_CONTAINER = {
     hidden: { opacity: 0 },
@@ -130,7 +131,7 @@ const TRANSITION_SECTION = {
 const CV = () => {
     return (
         <motion.main
-            className="space-y-14 mb-7"
+            className="space-y-14 mb-10"
             variants={VARIANTS_CONTAINER}
             initial="hidden"
             animate="visible"
@@ -176,6 +177,43 @@ const CV = () => {
                 </p>
             </motion.section>
 
+            {/**Projects */}
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <h3 className="mb-5 text-lg font-medium">Projects</h3>
+                <HoverEffect items={PROJECTS} />
+            </motion.section>
+
+            {/**Skills */}
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <h3 className="mb-5 text-lg font-medium">Skills</h3>
+                <div className="mb-7">
+                    {SKILLS.map((skill) => (
+                        <div
+                            className="flex flex-row gap-1 mb-2"
+                            key={skill.type}
+                        >
+                            {" "}
+                            <div>
+                                <Badge>{skill.type}</Badge>
+                            </div>
+                            <div className="flex flex-wrap gap-0.5">
+                                {skill.contents.map((content) => (
+                                    <Badge variant="secondary" key={content}>
+                                        {content}
+                                    </Badge>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </motion.section>
+
             {/**Education */}
             <motion.section
                 variants={VARIANTS_SECTION}
@@ -209,14 +247,6 @@ const CV = () => {
                         </Link>
                     ))}
                 </div>
-            </motion.section>
-
-            <motion.section
-                variants={VARIANTS_SECTION}
-                transition={TRANSITION_SECTION}
-            >
-                <h3 className="mb-5 text-lg font-medium">Projects</h3>
-                <HoverEffect items={PROJECTS} />
             </motion.section>
         </motion.main>
     );

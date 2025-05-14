@@ -153,18 +153,18 @@ export const SKILLS: Skills[] = [
             "Vector databases(Pinecone,FAISS, Weaviate)",
         ],
     },
-    {
-        type: "Tools",
-        contents: [
-            "Android Studio",
-            "VS Code",
-            "Git/Github",
-            "Linux",
-            "Kaggle/Colab/Jupyter",
-        ],
-    },
-    {
-        type: "Concepts",
-        contents: ["Microservices architecture", "DevOPs"],
-    },
+    // {
+    //     type: "Tools",
+    //     contents: [
+    //         "Android Studio",
+    //         "VS Code",
+    //         "Git/Github",
+    //         "Linux",
+    //         "Kaggle/Colab/Jupyter",
+    //     ],
+    // },
+    // {
+    //     type: "Concepts",
+    //     contents: ["Microservices architecture", "DevOPs"],
+    // },
 ];
