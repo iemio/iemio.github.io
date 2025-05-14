@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
         name: "Project1",
         description:
             "Description bout project 1.hgsacjhgsac asjcakcajscakjs cak",
-        sourceCode: "",
+        sourceCode: "sgdsggd",
         deployedLink: "https://project1.com",
         video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0",
         id: "project1",

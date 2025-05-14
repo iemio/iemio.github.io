@@ -18,7 +18,7 @@ export const HoverEffect = ({
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className={cn("grid grid-cols-1 md:grid-cols-2 py-10", className)}>
+        <div className={cn("grid grid-cols-1 md:grid-cols-2", className)}>
             {items.map((item, idx) => (
                 <Link
                     href={item?.deployedLink}
@@ -48,10 +48,7 @@ export const HoverEffect = ({
                         <CardTitle>{item.name}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
                         <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-zinc-800 dark:text-zinc-200 gap-8 flex-row">
-                            <CardLink
-                                link={item.deployedLink}
-                                icon={GithubIcon}
-                            >
+                            <CardLink link={item.sourceCode} icon={GithubIcon}>
                                 Source Code
                             </CardLink>
                             <CardLink link={item.deployedLink} icon={FrameIcon}>

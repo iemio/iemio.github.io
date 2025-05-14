@@ -130,7 +130,7 @@ const TRANSITION_SECTION = {
 const CV = () => {
     return (
         <motion.main
-            className="space-y-14"
+            className="space-y-14 mb-7"
             variants={VARIANTS_CONTAINER}
             initial="hidden"
             animate="visible"

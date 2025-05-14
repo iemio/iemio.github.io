@@ -75,20 +75,13 @@ export function CommandMenu() {
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Settings">
-                    <CommandItem>
-                        <div
-                            onClick={handleThemeChange}
-                            className="flex items-center gap-2 w-full"
-                        >
+                    <div onClick={handleThemeChange}>
+                        <CommandItem>
                             <User />
                             <span>Change theme</span>
                             <CommandShortcut>⌘K</CommandShortcut>
-                        </div>
-
-                        {/* <User />
-                        <span>Change theme</span>
-                        <CommandShortcut>⌘K</CommandShortcut> */}
-                    </CommandItem>
+                        </CommandItem>
+                    </div>
                 </CommandGroup>
             </CommandList>
         </CommandDialog>
