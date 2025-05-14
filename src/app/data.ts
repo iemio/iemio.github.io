@@ -25,11 +25,6 @@ export type AcademicBackground = {
     id: string;
 };
 
-export type SocialLink = {
-    label: string;
-    link: string;
-};
-
 export type Skills = {
     type: string;
     contents: string[];
@@ -37,7 +32,7 @@ export type Skills = {
 
 export const PROJECTS: Project[] = [
     {
-        name: "Project1",
+        name: "Agronex",
         description:
             "Description bout project 1.hgsacjhgsac asjcakcajscakjs cak",
         sourceCode: "sgdsggd",
@@ -46,7 +41,7 @@ export const PROJECTS: Project[] = [
         id: "project1",
     },
     {
-        name: "Project2",
+        name: "Medimind",
         description:
             "Description bout project 2.hgsacjhgsac asjcakcajscakjs cak",
         sourceCode: "",
@@ -55,12 +50,20 @@ export const PROJECTS: Project[] = [
         id: "project2",
     },
     {
-        name: "Project3",
+        name: "Cognivue",
         description: "Description bout project 2.",
         sourceCode: "",
         deployedLink: "https://project2.com",
         video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0",
         id: "project3",
+    },
+    {
+        name: "Synapse",
+        description: "Description bout project 2.",
+        sourceCode: "",
+        deployedLink: "https://project2.com",
+        video: "https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0",
+        id: "project4",
     },
 ];
 
@@ -75,24 +78,12 @@ export const EDUCATION: AcademicBackground[] = [
     },
 ];
 
-export const SOCIAL_LINKS: SocialLink[] = [
-    {
-        label: "Github",
-        link: "https://github.com/iemio",
-    },
-    {
-        label: "X",
-        link: "https://x.com/iemio",
-    },
-    {
-        label: "LinkedIn",
-        link: "https://www.linkedin.com/in/keshav",
-    },
-    {
-        label: "Instagram",
-        link: "https://www.instagram.com/iemio",
-    },
-];
+export const SOCIAL_LINKS: { [key: string]: string } = {
+    Github: "https://github.com/iemio",
+    X: "https://x.com/iemio",
+    LinkedIn: "https://www.linkedin.com/in/iemio",
+    Instagram: "https://www.instagram.com/iemio",
+};
 
 export const EMAIL = "your@email.com";
 
@@ -112,7 +103,7 @@ export const SKILLS: Skills[] = [
 
     {
         type: "Frontend Frameworks",
-        contents: ["React.js", "Next.js", "Django"],
+        contents: ["React.js", "Next.js", "Django", "React Native"],
     },
     {
         type: "Backend Frameworks",

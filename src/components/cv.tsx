@@ -200,11 +200,20 @@ const CV = () => {
                         >
                             {" "}
                             <div>
-                                <Badge>{skill.type}</Badge>
+                                <Badge
+                                    variant="secondary"
+                                    className="text-zinc-300 dark:text-zinc-200"
+                                >
+                                    {skill.type}
+                                </Badge>
                             </div>
                             <div className="flex flex-wrap gap-0.5">
                                 {skill.contents.map((content) => (
-                                    <Badge variant="secondary" key={content}>
+                                    <Badge
+                                        variant="outline"
+                                        key={content}
+                                        className="text-zinc-500 dark:text-zinc-400"
+                                    >
                                         {content}
                                     </Badge>
                                 ))}

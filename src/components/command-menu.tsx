@@ -18,6 +18,8 @@ import {
     RiArtboard2Line,
 } from "react-icons/ri";
 import React, { useState } from "react";
+import { SOCIAL_LINKS } from "@/app/data";
+import Link from "next/link";
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false);
     const [theme, setTheme] = useState(
@@ -60,18 +62,23 @@ export function CommandMenu() {
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Links">
-                    <CommandItem>
-                        <RiGithubLine />
-                        <span>Github</span>
-                    </CommandItem>
+                    <Link href={SOCIAL_LINKS.Github}>
+                        <CommandItem>
+                            <RiGithubLine />
+                            <span>Github</span>
+                        </CommandItem>
+                    </Link>
+
                     <CommandItem>
                         <RiArtboard2Line />
                         <span>Personal portfolio</span>
                     </CommandItem>
-                    <CommandItem>
-                        <RiLinkedinLine />
-                        <span>Linkedin</span>
-                    </CommandItem>
+                    <Link href={SOCIAL_LINKS.LinkedIn}>
+                        <CommandItem>
+                            <RiLinkedinLine />
+                            <span>Linkedin</span>
+                        </CommandItem>
+                    </Link>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Settings">
