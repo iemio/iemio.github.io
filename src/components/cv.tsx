@@ -1,11 +1,12 @@
 import { CiGlobe } from "react-icons/ci";
 import React from "react";
 import Link from "next/link";
-import { EDUCATION } from "@/app/data";
+import { EDUCATION, PROJECTS } from "@/app/data";
 // import ProjectCard from "./ui/project-card";
 // import { Badge } from "./ui/badge";
 import SocialIcons from "./social-icons";
 import { motion } from "motion/react";
+import { HoverEffect } from "./ui/card-hover-effect";
 
 const VARIANTS_CONTAINER = {
     hidden: { opacity: 0 },
@@ -139,7 +140,7 @@ const CV = () => {
                 variants={VARIANTS_SECTION}
                 transition={TRANSITION_SECTION}
             >
-                <div className="text-xl text-black dark:text-white mb-4 font-bold">
+                <div className="text-xl text-black dark:text-white mb-5 font-bold">
                     Keshav Kumar
                 </div>
                 <div className="flex-1">
@@ -160,6 +161,7 @@ const CV = () => {
                     </div>
                 </div>
             </motion.section>
+
             {/**About */}
             <motion.section
                 variants={VARIANTS_SECTION}
@@ -182,7 +184,7 @@ const CV = () => {
                 <h3 className="mb-5 text-lg font-medium">Education</h3>
                 <div className="flex flex-col space-y-2">
                     {EDUCATION.map((job) => (
-                        <a
+                        <Link
                             className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
                             href={job.link}
                             target="_blank"
@@ -204,9 +206,17 @@ const CV = () => {
                                     </p>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
+            </motion.section>
+
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <h3 className="mb-5 text-lg font-medium">Projects</h3>
+                <HoverEffect items={PROJECTS} />
             </motion.section>
         </motion.main>
     );
