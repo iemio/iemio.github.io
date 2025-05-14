@@ -2,8 +2,12 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <div className="fixed bottom-2 left-1/2 -translate-x-1/2 h-16 gap-4 items-end rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3 z-50">
-            Press to open the command menu
+        <div className="fixed w-full bottom-0 h-7 gap-4 bg-transparent z-50 backdrop-blur-3xl border-t flex items-center justify-center text-foreground">
+            Press
+            <span className="text-xs tracking-widest opacity-60 px-1.5 py-0.2 rounded border-1 border-gray-400">
+                ⌘J
+            </span>
+            to open the command menu
         </div>
     );
 };

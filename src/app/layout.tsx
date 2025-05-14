@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Mono, VT323 } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/components/footer";
 // import Footer from "@/components/footer";
 export const viewport: Viewport = {
     width: "device-width",
@@ -46,6 +47,7 @@ export default function RootLayout({
                             {children}
                             {/* <Footer /> */}
                         </div>
+                        <Footer />
                     </div>
                 </ThemeProvider>
             </body>

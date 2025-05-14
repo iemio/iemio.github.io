@@ -1,74 +1,214 @@
 import { CiGlobe } from "react-icons/ci";
 import React from "react";
 import Link from "next/link";
-import { PROJECTS, SKILLS } from "@/app/data";
-import ProjectCard from "./ui/project-card";
-import { Badge } from "./ui/badge";
+import { EDUCATION } from "@/app/data";
+// import ProjectCard from "./ui/project-card";
+// import { Badge } from "./ui/badge";
 import SocialIcons from "./social-icons";
+import { motion } from "motion/react";
+
+const VARIANTS_CONTAINER = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+        },
+    },
+};
+
+const VARIANTS_SECTION = {
+    hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
+const TRANSITION_SECTION = {
+    duration: 0.3,
+};
+
+// const CV = () => {
+//     return (
+//         <div className="min-h-screen">
+// <div className="text-3xl text-black dark:text-white mb-4 font-bold">
+//     Keshav
+// </div>
+// <div className="flex-1 mb-4">
+//     <div className="text-zinc-600 dark:text-zinc-400 mb-7">
+//         Full Stack web developer
+//         <br />
+//         Interested in artificial intelligence and machine learning.
+//         <div className="flex flex-row gap-2 mt-2 items-center">
+//             <CiGlobe />
+//             <Link href="/" className="text-sm hover:underline">
+//                 Jharkhand, India
+//             </Link>
+//         </div>
+//         <div className="mt-4">
+//             <SocialIcons />
+//         </div>
+//     </div>
+// </div>
+//             <div className="text-xl text-black dark:text-white mb-4">About</div>
+//             <p className="text-zinc-600 dark:text-zinc-400 mb-7">
+//                 With expertise spanning web development, machine learning, and
+//                 occasional app development, I craft robust technical solutions
+//                 across multiple domains.
+//             </p>
+//             <div className="text-xl text-black dark:text-white mb-4">
+//                 Work experience
+//             </div>
+//             <motion.section
+//                 variants={VARIANTS_SECTION}
+//                 transition={TRANSITION_SECTION}
+//                 className="mb-24"
+//             >
+//                 <div className="flex flex-col space-y-2 text-xl">
+//                     {EDUCATION.map((job) => (
+//                         <a
+//                             className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+//                             href={job.link}
+//                             target="_blank"
+//                             rel="noopener noreferrer"
+//                             key={job.id}
+//                         >
+//                             <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+//                                 <div className="relative flex w-full flex-row justify-between">
+//                                     <div className="flex flex-col gap-2">
+//                                         <h4 className=" dark:text-zinc-100 text-md">
+//                                             {job.school}
+//                                         </h4>
+//                                         <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+//                                             {job.degree}
+//                                         </p>
+//                                     </div>
+//                                     <p className="text-zinc-600 dark:text-zinc-400">
+//                                         {job.start} - {job.end}
+//                                     </p>
+//                                 </div>
+//                             </div>
+//                         </a>
+//                     ))}
+//                 </div>
+//             </motion.section>
+
+//             <div className="text-xl text-black dark:text-white mb-4">
+//                 Education
+//             </div>
+//             <div className="text-xl text-black dark:text-white mb-4">
+//                 Skills
+//             </div>
+//             <div className="mb-7">
+//                 {SKILLS.map((skill) => (
+//                     <div className="flex flex-row gap-1 mb-2" key={skill.type}>
+//                         {" "}
+//                         <div>
+//                             <Badge>{skill.type}</Badge>
+//                         </div>
+//                         <div className="flex flex-wrap gap-0.5">
+//                             {skill.contents.map((content) => (
+//                                 <Badge variant="secondary" key={content}>
+//                                     {content}
+//                                 </Badge>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 ))}
+//             </div>
+//             <div className="text-xl text-black dark:text-white mb-4">
+//                 Projects
+//             </div>
+//             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+//                 {PROJECTS.map((project) => (
+//                     <ProjectCard project={project} key={project.id} />
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// };
 
 const CV = () => {
     return (
-        <>
-            <div className="text-3xl text-black dark:text-white mb-4 font-bold">
-                Keshav
-            </div>
-            <div className="flex-1 mb-4">
-                <div className="text-zinc-600 dark:text-zinc-400 mb-7">
-                    Full Stack web developer
-                    <br />
-                    Interested in artificial intelligence and machine learning.
-                    <div className="flex flex-row gap-2 mt-2 items-center">
-                        <CiGlobe />
-                        <Link href="/" className="text-sm hover:underline">
-                            Jharkhand, India
-                        </Link>
-                    </div>
-                    <div className="mt-4">
-                        <SocialIcons />
+        <motion.main
+            className="space-y-14"
+            variants={VARIANTS_CONTAINER}
+            initial="hidden"
+            animate="visible"
+        >
+            {/**Header */}
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <div className="text-xl text-black dark:text-white mb-4 font-bold">
+                    Keshav Kumar
+                </div>
+                <div className="flex-1">
+                    <div className="text-zinc-600 dark:text-zinc-400">
+                        Full Stack web developer
+                        <br />
+                        Interested in artificial intelligence and machine
+                        learning.
+                        <div className="flex flex-row gap-2 mt-2 items-center">
+                            <CiGlobe />
+                            <Link href="/" className="text-sm hover:underline">
+                                Jharkhand, India
+                            </Link>
+                        </div>
+                        <div className="mt-4">
+                            <SocialIcons />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-xl text-black dark:text-white mb-4">About</div>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-7">
-                With expertise spanning web development, machine learning, and
-                occasional app development, I craft robust technical solutions
-                across multiple domains.
-            </p>
-            <div className="text-xl text-black dark:text-white mb-4">
-                Work experience
-            </div>
-            <div className="text-xl text-black dark:text-white mb-4">
-                Education
-            </div>
-            <div className="text-xl text-black dark:text-white mb-4">
-                Skills
-            </div>
-            <div className="mb-7">
-                {SKILLS.map((skill) => (
-                    <div className="flex flex-row gap-1 mb-2" key={skill.type}>
-                        {" "}
-                        <div>
-                            <Badge>{skill.type}</Badge>
-                        </div>
-                        <div className="flex flex-wrap gap-0.5">
-                            {skill.contents.map((content) => (
-                                <Badge variant="secondary" key={content}>
-                                    {content}
-                                </Badge>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <div className="text-xl text-black dark:text-white mb-4">
-                Projects
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {PROJECTS.map((project) => (
-                    <ProjectCard project={project} key={project.id} />
-                ))}
-            </div>
-        </>
+            </motion.section>
+            {/**About */}
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <h3 className="mb-5 text-lg font-medium">About</h3>
+
+                <p className="text-zinc-600 dark:text-zinc-400">
+                    With expertise spanning web development, machine learning,
+                    and occasional app development, I craft robust technical
+                    solutions across multiple domains.
+                </p>
+            </motion.section>
+
+            {/**Education */}
+            <motion.section
+                variants={VARIANTS_SECTION}
+                transition={TRANSITION_SECTION}
+            >
+                <h3 className="mb-5 text-lg font-medium">Education</h3>
+                <div className="flex flex-col space-y-2">
+                    {EDUCATION.map((job) => (
+                        <a
+                            className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+                            href={job.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={job.id}
+                        >
+                            <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                                <div className="relative flex w-full flex-row justify-between">
+                                    <div>
+                                        <h4 className="font-normal dark:text-zinc-100">
+                                            {job.school}
+                                        </h4>
+                                        <p className="text-zinc-500 dark:text-zinc-400">
+                                            {job.degree}
+                                        </p>
+                                    </div>
+                                    <p className="text-zinc-600 dark:text-zinc-400">
+                                        {job.start} - {job.end}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </motion.section>
+        </motion.main>
     );
 };
 

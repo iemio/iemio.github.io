@@ -15,6 +15,15 @@ export type WorkExperience = {
     id: string;
 };
 
+export type AcademicBackground = {
+    school: string;
+    degree: string;
+    start: string;
+    end: string;
+    link: string;
+    id: string;
+};
+
 export type SocialLink = {
     label: string;
     link: string;
@@ -49,10 +58,10 @@ export const PROJECTS: Project[] = [
     },
 ];
 
-export const WORK_EXPERIENCE: WorkExperience[] = [
+export const EDUCATION: AcademicBackground[] = [
     {
-        company: "IIT(ISM) Dhanbad",
-        title: "Student",
+        school: "IIT(ISM) Dhanbad",
+        degree: "Bachelors in Electronics and Communication",
         start: "2022",
         end: "Present",
         link: "https://www.iitism.ac.in/",
