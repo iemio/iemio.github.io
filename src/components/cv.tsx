@@ -1,7 +1,7 @@
 import { CiGlobe } from "react-icons/ci";
 import React from "react";
 import Link from "next/link";
-import { EDUCATION, PROJECTS, SKILLS } from "@/app/data";
+import { EDUCATION, PROJECTS, SKILLS } from "../../public/data/info";
 // import ProjectCard from "./ui/project-card";
 // import { Badge } from "./ui/badge";
 import SocialIcons from "./social-icons";

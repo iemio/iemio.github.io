@@ -18,7 +18,7 @@ import {
     RiArtboard2Line,
 } from "react-icons/ri";
 import React, { useState } from "react";
-import { SOCIAL_LINKS } from "@/app/data";
+import { SOCIAL_LINKS } from "../../public/data/info";
 import Link from "next/link";
 export function CommandMenu() {
     const [open, setOpen] = React.useState(false);
