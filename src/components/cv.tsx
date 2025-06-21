@@ -8,6 +8,7 @@ import SocialIcons from "./social-icons";
 import { motion } from "motion/react";
 import { HoverEffect } from "./ui/card-hover-effect";
 import { Badge } from "./ui/badge";
+import AnimatedUnderline from "./animated-underline";
 
 const VARIANTS_CONTAINER = {
     hidden: { opacity: 0 },
@@ -131,7 +132,7 @@ const TRANSITION_SECTION = {
 const CV = () => {
     return (
         <motion.main
-            className="space-y-14 mb-10"
+            className="space-y-14 mb-10 mt-10 md:mt-20"
             variants={VARIANTS_CONTAINER}
             initial="hidden"
             animate="visible"
@@ -168,8 +169,7 @@ const CV = () => {
                 variants={VARIANTS_SECTION}
                 transition={TRANSITION_SECTION}
             >
-                <h3 className="mb-5 text-lg font-medium">About</h3>
-
+                <AnimatedUnderline>About</AnimatedUnderline>
                 <p className="text-zinc-600 dark:text-zinc-400">
                     With expertise spanning web development, machine learning,
                     and occasional app development, I craft robust technical
@@ -182,7 +182,7 @@ const CV = () => {
                 variants={VARIANTS_SECTION}
                 transition={TRANSITION_SECTION}
             >
-                <h3 className="mb-5 text-lg font-medium">Projects</h3>
+                <AnimatedUnderline>Projects</AnimatedUnderline>
                 <HoverEffect items={PROJECTS} />
             </motion.section>
 
@@ -191,7 +191,7 @@ const CV = () => {
                 variants={VARIANTS_SECTION}
                 transition={TRANSITION_SECTION}
             >
-                <h3 className="mb-5 text-lg font-medium">Skills</h3>
+                <AnimatedUnderline>Skills</AnimatedUnderline>
                 <div className="mb-7">
                     {SKILLS.map((skill) => (
                         <div
@@ -228,7 +228,7 @@ const CV = () => {
                 variants={VARIANTS_SECTION}
                 transition={TRANSITION_SECTION}
             >
-                <h3 className="mb-5 text-lg font-medium">Education</h3>
+                <AnimatedUnderline>Education</AnimatedUnderline>
                 <div className="flex flex-col space-y-2">
                     {EDUCATION.map((job) => (
                         <Link

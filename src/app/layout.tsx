@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Mono, VT323 } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
-import Footer from "@/components/footer";
-// import Footer from "@/components/footer";
+
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
@@ -43,11 +42,7 @@ export default function RootLayout({
                     defaultTheme="system"
                 >
                     <div className="flex w-full min-h-screen flex-col font-space-mono">
-                        <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-                            {children}
-                            {/* <Footer /> */}
-                        </div>
-                        <Footer />
+                        {children}
                     </div>
                 </ThemeProvider>
             </body>

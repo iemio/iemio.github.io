@@ -3,11 +3,12 @@
 import type React from "react";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { Project } from "../../../public/data/info";
 import { LucideIcon, GithubIcon, FrameIcon } from "lucide-react";
+
 export const HoverEffect = ({
     items,
     className,
