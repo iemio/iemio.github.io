@@ -80,14 +80,14 @@ export function HomeCommandMenu() {
             {!isLargeScreen && (
                 <div className="fixed bottom-4 right-4 z-50">
                     <Button
-                        className="rounded-full h-12 w-12 cursor-pointer"
+                        className="rounded-full h-11 w-11 cursor-pointer"
                         variant="outline"
                         size="icon"
                         aria-label="Open Command Menu"
                         onClick={() => setOpen(true)}
                     >
                         <Command
-                            size={20}
+                            size={19}
                             strokeWidth={2}
                             aria-hidden="true"
                         ></Command>
